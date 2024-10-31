@@ -1,0 +1,50 @@
+{
+    "teferiheroofdominaria": {
+        "name": "Teferi, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 18.9,
+            "Mana Trust": 1234
+        }
+    },
+    "teferiheroofdominarias": {
+        "name": "Tefunky, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 8888888,
+            "Mana Trust": 33
+        }
+    },
+    "teferiheroofdominariass": {
+        "name": "Teferi, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 18.9,
+            "Mana Trust": 777
+        }
+    },
+    "teferiheroofdominariasss": {
+        "name": "Teferi, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 88,
+            "Mana Trust": 77
+        }
+    },
+    "teferiheroofdominariassss": {
+        "name": "Teferi, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 123,
+            "Mana Trust": 18.7
+        }
+    },
+    "teferiheroofdominariasssss": {
+        "name": "Teferi, Hero of Dominaria",
+        "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "prices": {
+            "Face 2 Face Games": 13.9,
+            "Mana Trust": 18.7
+        }
+    }
+}
