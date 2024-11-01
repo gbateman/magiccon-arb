@@ -3,28 +3,36 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 
 import Card from './Card';
+import CardInput from './CardInput';
 import DropdownMenu from './DropdownMenu';
 import PriceInput from './PriceInput';
 
 interface CardState {
     name: string;
-    image_uri: string;
+    imageUri: string;
     prices: { [key: string]: number };
 }
 
 interface State {
-    [key: string]: CardState;
+    storeIds: string[];
+    cards: { [key: string]: CardState };
+}
+
+interface CardInfo {
+    uuid: string;
+    name: string;
+    imageUri: string;
 }
 
 const App: React.FC = () => {
-    const [storeId, setStoreId] = useState<string>({});
     const [state, setState] = useState<State>({});
     const [error, setError] = useState<string | null>(null);
 
-    const storeIds = ['Face 2 Face Games', 'Mana Trust'];
     const [selectedStoreId, setSelectedStoreId] = useState<string | null>(null);
 
     const [editingCardId, setEditingCardId] = useState<string | null>(null);
+
+    const [addingCard, setAddingCard] = useState<boolean>(false);
 
     useEffect(() => {
         const fetchState = async () => {
@@ -97,6 +105,45 @@ const App: React.FC = () => {
         setEditingCardId(null);
     };
 
+    const handleAddCard = async () => {
+        console.log('Add Card');
+        setAddingCard(true);
+    };
+
+    const handleConfirmCard = async (cardInfo: CardInfo) => {
+        console.log('Confirmed Card:', cardInfo);
+        setAddingCard(false);
+        try {
+            const response = await fetch('/add-card', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    cardId: cardInfo.uuid,
+                    name: cardInfo.name,
+                    imageUri: cardInfo.imageUri,
+                }),
+            });
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            const data = await response.json();
+            if (typeof data.state === 'object') {
+                setState(data.state);
+            } else {
+                throw new Error('Invalid data format');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
+    const handleCancelAddingCard = async () => {
+        console.log('Cancel Adding Card');
+        setAddingCard(false);
+    };
+
     if (error) {
         return <div>Error: {error}</div>;
     }
@@ -104,9 +151,20 @@ const App: React.FC = () => {
     if (editingCardId) {
         return (
             <PriceInput
-                initialPrice={state[editingCardId].prices[selectedStoreId]}
+                initialPrice={
+                    state.cards[editingCardId].prices[selectedStoreId]
+                }
                 onSubmit={handleConfirmPrice}
                 onCancel={handleCancelEditingPrice}
+            />
+        );
+    }
+
+    if (addingCard) {
+        return (
+            <CardInput
+                onSubmit={handleConfirmCard}
+                onCancel={handleCancelAddingCard}
             />
         );
     }
@@ -116,40 +174,51 @@ const App: React.FC = () => {
             <h1>Pick Store</h1>
             <DropdownMenu
                 initialSelection={selectedStoreId}
-                options={['Best Price', ...storeIds]}
+                options={[
+                    'Best Price',
+                    ...((state.storeIds && state.storeIds) || []),
+                ]}
                 onSelect={handleSelectStore}
             />
             <h1>Cards</h1>
             <div className="cards">
-                {Object.entries(state)
-                    .sort(([cardIdA, cardStateA], [cardIdB, cardStateB]) =>
-                        cardStateA.name > cardStateB.name ? 1 : -1
-                    )
-                    .map(([cardId, cardState]) => {
-                        let storeId;
-                        let price;
-                        if (selectedStoreId) {
-                            storeId = selectedStoreId;
-                            price = cardState.prices[selectedStoreId];
-                        } else {
-                            [storeId, price] = Object.entries(
-                                cardState.prices
-                            ).reduce((maxEntry, currentEntry) =>
-                                currentEntry[1] > maxEntry[1]
-                                    ? currentEntry
-                                    : maxEntry
+                {state.cards &&
+                    Object.entries(state.cards)
+                        .sort(([cardIdA, cardStateA], [cardIdB, cardStateB]) =>
+                            cardStateA.name > cardStateB.name ? 1 : -1
+                        )
+                        .map(([cardId, cardState]) => {
+                            let storeId;
+                            let price;
+                            if (selectedStoreId) {
+                                storeId = selectedStoreId;
+                                price = cardState.prices[selectedStoreId];
+                            } else {
+                                [storeId, price] = Object.entries(
+                                    cardState.prices
+                                ).reduce(
+                                    (maxEntry, currentEntry) =>
+                                        currentEntry[1] > maxEntry[1]
+                                            ? currentEntry
+                                            : maxEntry,
+                                    ['', -1]
+                                );
+                            }
+                            return (
+                                <Card
+                                    key={cardId}
+                                    imageUri={cardState.imageUri}
+                                    storeId={storeId}
+                                    price={price}
+                                    onClick={() => handleCardClick(cardId)}
+                                />
                             );
-                        }
-                        return (
-                            <Card
-                                key={cardId}
-                                imageUri={cardState.imageUri}
-                                storeId={storeId}
-                                price={price}
-                                onClick={() => handleCardClick(cardId)}
-                            />
-                        );
-                    })}
+                        })}
+            </div>
+            <div className="button-container">
+                <button onClick={handleAddCard} className="button">
+                    Add Card
+                </button>
             </div>
         </div>
     );

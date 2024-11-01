@@ -6,20 +6,35 @@ body {
     padding: 0;
 }
 
-.container {
-    padding: 20px;
-}
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px; /* Spacing between images */
-    justify-content: left;
-}
-
 h1,
 h2,
 h3,
 h4 {
     color: #ff99cc; /* Mild pink color for headings */
+}
+
+.container {
+    padding: 10px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Spacing between images */
+    justify-content: left;
+}
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px 20px;
+    color: #ff99cc; /* Mild pink color for headings */
+    background-color: #121212; /* Dark background */
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
 }

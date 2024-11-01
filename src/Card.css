@@ -1,7 +1,7 @@
 .card-overlay-container {
     position: relative;
-    width: 200px; /* Adjust width for 3:2 aspect ratio */
-    height: 300px; /* Height is 2/3 of width */
+    width: 120px; /* Adjust width for 3:2 aspect ratio */
+    height: 180px; /* Height is 2/3 of width */
 }
 
 .card-image {
@@ -14,7 +14,8 @@
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 1.2rem;
+    right: 10px;
+    font-size: 1rem;
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);

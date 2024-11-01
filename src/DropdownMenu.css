@@ -1,0 +1,13 @@
+.dropdown-menu {
+    color: #ff99cc; /* Mild pink color for headings */
+    background-color: #121212; /* Dark background */
+    padding: 5px; /* Optional padding */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Adjust font size as needed */
+}
+
+/* Style the dropdown arrow */
+.dropdown-menu option {
+    color: #ff99cc; /* Mild pink color for headings */
+    background-color: #121212; /* Dark background */
+}

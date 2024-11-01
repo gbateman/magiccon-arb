@@ -33,8 +33,40 @@ app.get('/state', (req, res) => {
     });
 });
 
-app.get('/find-cards', (req, res) => {
-    res.json({ test: 'test' });
+app.post('/add-card', (req, res) => {
+    console.log(req.body);
+    const cardId = req.body.cardId;
+    const name = req.body.name;
+    const imageUri = req.body.imageUri;
+
+    fs.readFile(stateFile, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error reading file:', err);
+            return res.status(500).json({ error: 'Error reading file' });
+        }
+
+        const state = JSON.parse(data);
+
+        if (cardId in state.cards) {
+            console.error('Card already present in state', cardId, state.cards);
+            return res
+                .status(500)
+                .json({ error: 'Card already present in state' });
+        }
+
+        state.cards[cardId] = { name, imageUri, prices: {} };
+
+        const newFileContents = JSON.stringify(state, null, 4);
+
+        fs.writeFile(stateFile, newFileContents, 'utf8', (err) => {
+            if (err) {
+                console.error('Error writing to file:', err);
+                return res.status(500).json({ error: 'Error writing to file' });
+            }
+
+            res.json({ state: state });
+        });
+    });
 });
 
 app.post('/set-price', (req, res) => {
@@ -51,12 +83,12 @@ app.post('/set-price', (req, res) => {
 
         const state = JSON.parse(data);
 
-        if (!(cardId in state)) {
+        if (!(cardId in state.cards)) {
             console.error('Card not found:', cardId, JSON.stringify(state));
             return res.status(500).json({ error: 'Card not found' });
         }
 
-        const cardState = state[cardId];
+        const cardState = state.cards[cardId];
 
         cardState.prices[storeId] = price;
 
