@@ -28,6 +28,7 @@ const DropdownMenu: React.FC<DropdownMenuProps> = ({
         <div>
             <select
                 id="dropdown"
+                className="dropdown-menu"
                 onChange={handleChange}
                 value={selectedOption || ''}
             >

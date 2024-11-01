@@ -30,6 +30,12 @@ const PriceInput: React.FC<PriceInputProps> = ({
         setInputValue(event.target.value);
     };
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === 'Enter') {
+            handleSubmit();
+        }
+    };
+
     const handleSubmit = () => {
         onSubmit(parseFloat(inputValue)); // Call submit callback with input value
         setInputValue(''); // Clear the input after submit
@@ -43,9 +49,10 @@ const PriceInput: React.FC<PriceInputProps> = ({
     return (
         <div className="overlay">
             <input
-                type="text"
+                type="number"
                 value={inputValue}
                 onChange={handleInputChange}
+                onKeyDown={handleKeyDown}
                 className="input"
                 placeholder="Price"
                 ref={inputRef}
