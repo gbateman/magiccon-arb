@@ -180,6 +180,11 @@ const App: React.FC = () => {
                 ]}
                 onSelect={handleSelectStore}
             />
+            <div className="button-container">
+                <button onClick={handleAddCard} className="button">
+                    Add Card
+                </button>
+            </div>
             <h1>Cards</h1>
             <div className="cards">
                 {state.cards &&
@@ -214,11 +219,6 @@ const App: React.FC = () => {
                                 />
                             );
                         })}
-            </div>
-            <div className="button-container">
-                <button onClick={handleAddCard} className="button">
-                    Add Card
-                </button>
             </div>
         </div>
     );

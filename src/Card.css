@@ -1,7 +1,7 @@
 .card-overlay-container {
     position: relative;
-    width: 120px; /* Adjust width for 3:2 aspect ratio */
-    height: 180px; /* Height is 2/3 of width */
+    width: 90px; /* Adjust width for 3:2 aspect ratio */
+    height: 135px; /* Height is 2/3 of width */
 }
 
 .card-image {
