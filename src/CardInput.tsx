@@ -35,7 +35,7 @@ const CardInput: React.FC<CardInputProps> = ({ onSubmit, onCancel }) => {
     const fetchCards = async (query: string) => {
         try {
             const response = await fetch(
-                `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:prints sort:usd game:paper && (${query})`)}`
+                `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd game:paper not:foil not:atypical && (${query})`)}`
             );
             const data = await response.json();
             if (typeof data.data === 'object') {

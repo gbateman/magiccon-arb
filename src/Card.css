@@ -1,7 +1,7 @@
 .card-overlay-container {
     position: relative;
-    width: 90px; /* Adjust width for 3:2 aspect ratio */
-    height: 135px; /* Height is 2/3 of width */
+    width: 80px; /* Adjust width for 3:2 aspect ratio */
+    height: 120px; /* Height is 2/3 of width */
 }
 
 .card-image {
@@ -12,21 +12,23 @@
 
 .overlay-store-id {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: 15px;
+    left: 5px;
+    right: 5px;
     font-size: 1rem;
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    overflow-wrap: break-word;
 }
 
 .overlay-price {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 5px;
     font-size: 2rem;
     color: white;
     font-weight: bold;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+    overflow-wrap: break-word;
 }

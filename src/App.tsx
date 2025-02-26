@@ -134,6 +134,10 @@ const App: React.FC = () => {
             } else {
                 throw new Error('Invalid data format');
             }
+
+            if (selectedStoreId) {
+                setEditingCardId(cardInfo.uuid);
+            }
         } catch (error) {
             console.error('Error:', error);
         }
