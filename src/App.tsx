@@ -6,6 +6,7 @@ import Card from './Card';
 import CardInput from './CardInput';
 import DropdownMenu from './DropdownMenu';
 import PriceInput from './PriceInput';
+import Papa from 'papaparse';
 
 interface CardState {
     name: string;
@@ -163,47 +164,62 @@ const App: React.FC = () => {
         if (!file) return;
     
         const text = await file.text();
-        const lines = text.trim().split('\n');
-        const rows = lines.slice(1).map(line => {
-            const [name, priceStr] = line.split(',').map(s => s.trim());
-            return { name, price: parseFloat(priceStr) };
+        const parsed = Papa.parse(text, {
+            header: true,
+            skipEmptyLines: true,
+            transform: value => value.trim().replace(/^['"]|['"]$/g, ''),
         });
+    
+        if (parsed.errors.length > 0) {
+            console.error('CSV parse error:', parsed.errors);
+            alert('There was a problem parsing the CSV.');
+            return;
+        }
+    
+        const rows = parsed.data as { card_name: string; price: string }[];
     
         const cardsToAdd = [];
         const pricesToSet = [];
     
         for (const row of rows) {
+            const name = row.card_name;
+            const price = parseFloat(row.price);
+            if (!name || isNaN(price)) {
+                console.warn('Invalid row skipped:', row);
+                continue;
+            }
+    
             try {
                 const scryfallRes = await fetch(
-                    `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd game:paper not:foil not:atypical && (${row.name})`)}`
+                    `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd is:typical "${name}"`)}`
                 );
                 const scryfallJson = await scryfallRes.json();
                 const card = scryfallJson.data?.[0];
                 if (!card) {
-                    console.warn(`No result for: ${row.name}`);
+                    console.warn(`No result for: ${name}`);
                     continue;
                 }
     
                 const uuid = card.id;
-                const name = card.name;
+                const actualName = card.name;
                 const imageUri = card.image_uris?.png || card.card_faces?.[0]?.image_uris?.png;
     
                 const alreadyAdded = Object.values(state.cards).some(
-                    c => c.name.toLowerCase() === name.toLowerCase()
+                    c => c.name.toLowerCase() === actualName.toLowerCase()
                 );
     
                 if (!alreadyAdded) {
-                    cardsToAdd.push({ cardId: uuid, name, imageUri });
+                    cardsToAdd.push({ cardId: uuid, name: actualName, imageUri });
                 }
     
                 pricesToSet.push({
                     cardId: uuid,
                     storeId: selectedStoreId,
-                    price: row.price,
+                    price,
                 });
     
             } catch (err) {
-                console.error(`Error importing ${row.name}:`, err);
+                console.error(`Error importing ${name}:`, err);
             }
         }
     
@@ -226,7 +242,6 @@ const App: React.FC = () => {
                 if (!priceRes.ok) throw new Error('Batch price set failed');
             }
     
-            // Final refresh
             const updated = await fetch('/state');
             const updatedJson = await updated.json();
             if (typeof updatedJson.state === 'object') {
