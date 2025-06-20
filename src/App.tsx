@@ -169,10 +169,13 @@ const App: React.FC = () => {
             return { name, price: parseFloat(priceStr) };
         });
     
+        const cardsToAdd = [];
+        const pricesToSet = [];
+    
         for (const row of rows) {
             try {
                 const scryfallRes = await fetch(
-                    `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd game:paper not:foil not:atypical "${row.name}"`)}`
+                    `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd game:paper not:foil not:atypical && (${row.name})`)}`
                 );
                 const scryfallJson = await scryfallRes.json();
                 const card = scryfallJson.data?.[0];
@@ -190,39 +193,50 @@ const App: React.FC = () => {
                 );
     
                 if (!alreadyAdded) {
-                    const addCardRes = await fetch('/add-card', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cardId: uuid, name, imageUri }),
-                    });
-                    if (!addCardRes.ok) throw new Error(`Add failed for ${name}`);
+                    cardsToAdd.push({ cardId: uuid, name, imageUri });
                 }
     
-                if (selectedStoreId) {
-                    const setPriceRes = await fetch('/set-price', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            cardId: uuid,
-                            storeId: selectedStoreId,
-                            price: row.price,
-                        }),
-                    });
-                    if (!setPriceRes.ok) throw new Error(`Price set failed for ${name}`);
-                }
-    
-                const updated = await fetch('/state');
-                const updatedJson = await updated.json();
-                if (typeof updatedJson.state === 'object') {
-                    setState(updatedJson.state);
-                }
+                pricesToSet.push({
+                    cardId: uuid,
+                    storeId: selectedStoreId,
+                    price: row.price,
+                });
     
             } catch (err) {
                 console.error(`Error importing ${row.name}:`, err);
             }
         }
+    
+        try {
+            if (cardsToAdd.length > 0) {
+                const addRes = await fetch('/add-card', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(cardsToAdd),
+                });
+                if (!addRes.ok) throw new Error('Batch add failed');
+            }
+    
+            if (pricesToSet.length > 0) {
+                const priceRes = await fetch('/set-price', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(pricesToSet),
+                });
+                if (!priceRes.ok) throw new Error('Batch price set failed');
+            }
+    
+            // Final refresh
+            const updated = await fetch('/state');
+            const updatedJson = await updated.json();
+            if (typeof updatedJson.state === 'object') {
+                setState(updatedJson.state);
+            }
+        } catch (err) {
+            console.error('Error during batch import:', err);
+        }
     };
-
+    
     if (error) {
         return <div>Error: {error}</div>;
     }

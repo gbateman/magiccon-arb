@@ -34,10 +34,7 @@ app.get('/state', (req, res) => {
 });
 
 app.post('/add-card', (req, res) => {
-    console.log(req.body);
-    const cardId = req.body.cardId;
-    const name = req.body.name;
-    const imageUri = req.body.imageUri;
+    const cards = Array.isArray(req.body) ? req.body : [req.body]; // Support single or batch
 
     fs.readFile(stateFile, 'utf8', (err, data) => {
         if (err) {
@@ -47,33 +44,29 @@ app.post('/add-card', (req, res) => {
 
         const state = JSON.parse(data);
 
-        if (cardId in state.cards) {
-            console.error('Card already present in state', cardId, state.cards);
-            return res
-                .status(500)
-                .json({ error: 'Card already present in state' });
+        for (const card of cards) {
+            const { cardId, name, imageUri } = card;
+            if (!state.cards[cardId]) {
+                state.cards[cardId] = { name, imageUri, prices: {} };
+            } else {
+                console.log(`Card ${cardId} already exists, skipping`);
+            }
         }
 
-        state.cards[cardId] = { name, imageUri, prices: {} };
-
         const newFileContents = JSON.stringify(state, null, 4);
-
         fs.writeFile(stateFile, newFileContents, 'utf8', (err) => {
             if (err) {
                 console.error('Error writing to file:', err);
                 return res.status(500).json({ error: 'Error writing to file' });
             }
-
-            res.json({ state: state });
+            res.json({ state });
         });
     });
 });
 
+
 app.post('/set-price', (req, res) => {
-    console.log(req.body);
-    const storeId = req.body.storeId;
-    const cardId = req.body.cardId;
-    const price = req.body.price;
+    const prices = Array.isArray(req.body) ? req.body : [req.body]; // Support single or batch
 
     fs.readFile(stateFile, 'utf8', (err, data) => {
         if (err) {
@@ -83,24 +76,22 @@ app.post('/set-price', (req, res) => {
 
         const state = JSON.parse(data);
 
-        if (!(cardId in state.cards)) {
-            console.error('Card not found:', cardId, JSON.stringify(state));
-            return res.status(500).json({ error: 'Card not found' });
+        for (const { cardId, storeId, price } of prices) {
+            if (!state.cards[cardId]) {
+                console.warn(`Card ${cardId} not found, skipping`);
+                continue;
+            }
+
+            state.cards[cardId].prices[storeId] = price;
         }
 
-        const cardState = state.cards[cardId];
-
-        cardState.prices[storeId] = price;
-
         const newFileContents = JSON.stringify(state, null, 4);
-
         fs.writeFile(stateFile, newFileContents, 'utf8', (err) => {
             if (err) {
                 console.error('Error writing to file:', err);
                 return res.status(500).json({ error: 'Error writing to file' });
             }
-
-            res.json({ state: state });
+            res.json({ state });
         });
     });
 });
