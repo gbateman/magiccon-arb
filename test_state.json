@@ -1,78 +1,38 @@
 {
-    "storeIds": ["Face 2 Face Games", "Mana Trust"],
+    "storeIds": [
+        "Face 2 Face Games",
+        "Mana Trust"
+    ],
     "cards": {
-        "teferiheroofdominaria": {
-            "name": "Teferi, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "70d6c02e-0f48-4fb0-94f3-1fc92ee1814f": {
+            "name": "Mox Jet",
+            "imageUri": "https://cards.scryfall.io/png/front/7/0/70d6c02e-0f48-4fb0-94f3-1fc92ee1814f.png?1559591936",
             "prices": {
-                "Face 2 Face Games": 18.9,
-                "Mana Trust": 1234
+                "Face 2 Face Games": 1000,
+                "Mana Trust": 1000
             }
         },
-        "teferiheroofdominarias": {
-            "name": "Tefunky, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "f7d82f1d-631e-4668-9d10-7bf0ee515267": {
+            "name": "Mox Sapphire",
+            "imageUri": "https://cards.scryfall.io/png/front/f/7/f7d82f1d-631e-4668-9d10-7bf0ee515267.png?1559592066",
             "prices": {
-                "Face 2 Face Games": 99,
-                "Mana Trust": 33
+                "Face 2 Face Games": 1010,
+                "Mana Trust": 1030
             }
         },
-        "teferiheroofdominariass": {
-            "name": "Teferi, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "a4db5af2-9caf-4493-b340-6d64021139e2": {
+            "name": "Mox Emerald",
+            "imageUri": "https://cards.scryfall.io/png/front/a/4/a4db5af2-9caf-4493-b340-6d64021139e2.png?1559592068",
             "prices": {
-                "Face 2 Face Games": 18.9,
-                "Mana Trust": 777
+                "Face 2 Face Games": 2030
             }
         },
-        "teferiheroofdominariasss": {
-            "name": "Teferi, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
+        "4a2e428c-dd25-484c-bbc8-2d6ce10ef42c": {
+            "name": "Black Lotus",
+            "imageUri": "https://cards.scryfall.io/png/front/4/a/4a2e428c-dd25-484c-bbc8-2d6ce10ef42c.png?1559591808",
             "prices": {
-                "Face 2 Face Games": 88,
-                "Mana Trust": 991
+                "Face 2 Face Games": 10000
             }
-        },
-        "teferiheroofdominariassss": {
-            "name": "Teferi, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
-            "prices": {
-                "Face 2 Face Games": 19234,
-                "Mana Trust": 18.7
-            }
-        },
-        "teferiheroofdominariasssss": {
-            "name": "Teferi, Hero of Dominaria",
-            "imageUri": "https://cards.scryfall.io/png/front/5/d/5d10b752-d9cb-419d-a5c4-d4ee1acb655e.png?1562736365",
-            "prices": {
-                "Face 2 Face Games": 13.9,
-                "Mana Trust": 18.7
-            }
-        },
-        "ad2e18d4-986c-4a44-8f26-1b8689339cfb": {
-            "name": "Teferi, Who Slows the Sunset",
-            "imageUri": "https://cards.scryfall.io/png/front/a/d/ad2e18d4-986c-4a44-8f26-1b8689339cfb.png?1637114314",
-            "prices": {
-                "Face 2 Face Games": 13.9,
-                "Mana Trust": 18.7
-            }
-        },
-        "abf8df47-405c-42d8-be9e-0f0d0a49589b": {
-            "name": "Oloro, Ageless Ascetic",
-            "imageUri": "https://cards.scryfall.io/png/front/a/b/abf8df47-405c-42d8-be9e-0f0d0a49589b.png?1562931285",
-            "prices": {
-                "Face 2 Face Games": 18
-            }
-        },
-        "ea00d757-0ea9-4123-89f6-0a437d7fd33d": {
-            "name": "Anthem of Rakdos",
-            "imageUri": "https://cards.scryfall.io/png/front/e/a/ea00d757-0ea9-4123-89f6-0a437d7fd33d.png?1593273540",
-            "prices": {}
-        },
-        "3d0d5a41-8251-437c-a4a0-3b712281ebb0": {
-            "name": "Rakdos, Lord of Riots",
-            "imageUri": "https://cards.scryfall.io/png/front/3/d/3d0d5a41-8251-437c-a4a0-3b712281ebb0.png?1726285245",
-            "prices": {}
         }
     }
 }

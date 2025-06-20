@@ -148,6 +148,81 @@ const App: React.FC = () => {
         setAddingCard(false);
     };
 
+    const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+    const handleImportCSVClick = () => {
+        if (!selectedStoreId) {
+            alert('Please select a store before importing a CSV.');
+            return;
+        }
+        fileInputRef.current?.click();
+    };
+
+    const handleCSVUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (!file) return;
+    
+        const text = await file.text();
+        const lines = text.trim().split('\n');
+        const rows = lines.slice(1).map(line => {
+            const [name, priceStr] = line.split(',').map(s => s.trim());
+            return { name, price: parseFloat(priceStr) };
+        });
+    
+        for (const row of rows) {
+            try {
+                const scryfallRes = await fetch(
+                    `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd game:paper not:foil not:atypical "${row.name}"`)}`
+                );
+                const scryfallJson = await scryfallRes.json();
+                const card = scryfallJson.data?.[0];
+                if (!card) {
+                    console.warn(`No result for: ${row.name}`);
+                    continue;
+                }
+    
+                const uuid = card.id;
+                const name = card.name;
+                const imageUri = card.image_uris?.png || card.card_faces?.[0]?.image_uris?.png;
+    
+                const alreadyAdded = Object.values(state.cards).some(
+                    c => c.name.toLowerCase() === name.toLowerCase()
+                );
+    
+                if (!alreadyAdded) {
+                    const addCardRes = await fetch('/add-card', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cardId: uuid, name, imageUri }),
+                    });
+                    if (!addCardRes.ok) throw new Error(`Add failed for ${name}`);
+                }
+    
+                if (selectedStoreId) {
+                    const setPriceRes = await fetch('/set-price', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            cardId: uuid,
+                            storeId: selectedStoreId,
+                            price: row.price,
+                        }),
+                    });
+                    if (!setPriceRes.ok) throw new Error(`Price set failed for ${name}`);
+                }
+    
+                const updated = await fetch('/state');
+                const updatedJson = await updated.json();
+                if (typeof updatedJson.state === 'object') {
+                    setState(updatedJson.state);
+                }
+    
+            } catch (err) {
+                console.error(`Error importing ${row.name}:`, err);
+            }
+        }
+    };
+
     if (error) {
         return <div>Error: {error}</div>;
     }
@@ -188,6 +263,16 @@ const App: React.FC = () => {
                 <button onClick={handleAddCard} className="button">
                     Add Card
                 </button>
+                <button onClick={handleImportCSVClick} className="button">
+                    Import CSV
+                </button>
+                <input
+                    type="file"
+                    accept=".csv"
+                    ref={fileInputRef}
+                    style={{ display: 'none' }}
+                    onChange={handleCSVUpload}
+                />
             </div>
             <h1>Cards</h1>
             <div className="cards">
