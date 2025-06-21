@@ -9,434 +9,627 @@
             "imageUri": "https://cards.scryfall.io/png/front/9/d/9db3ba6d-eb7f-4f5b-9a3b-c6239c3baa42.png?1738703598",
             "prices": {
                 "Face 2 Face Games": 35
-            }
+            },
+            "colorIdentity": []
         },
         "98b68dea-a7be-4f99-8a50-4c8cf0e0f7a9": {
             "name": "Nicol Bolas, Dragon-God",
             "imageUri": "https://cards.scryfall.io/png/front/9/8/98b68dea-a7be-4f99-8a50-4c8cf0e0f7a9.png?1575031756",
             "prices": {
                 "Face 2 Face Games": 52
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "R",
+                "U"
+            ]
         },
         "7b7a348a-51f7-4dc5-8fe7-1c70fea5e050": {
             "name": "Urza, Lord High Artificer",
             "imageUri": "https://cards.scryfall.io/png/front/7/b/7b7a348a-51f7-4dc5-8fe7-1c70fea5e050.png?1689996774",
             "prices": {
                 "Face 2 Face Games": 99
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "ff8086cd-b868-4f4e-823e-2635ad7ebc07": {
             "name": "Chandra, Torch of Defiance",
             "imageUri": "https://cards.scryfall.io/png/front/f/f/ff8086cd-b868-4f4e-823e-2635ad7ebc07.png?1576381994",
             "prices": {
                 "Face 2 Face Games": 22
-            }
+            },
+            "colorIdentity": [
+                "R"
+            ]
         },
         "cd114ec3-d286-4c70-a122-3043bc53cc88": {
             "name": "Batterskull",
             "imageUri": "https://cards.scryfall.io/png/front/c/d/cd114ec3-d286-4c70-a122-3043bc53cc88.png?1562881615",
             "prices": {
                 "Face 2 Face Games": 62
-            }
+            },
+            "colorIdentity": []
         },
         "8beb987c-1b67-4a4e-ae71-58547afad2a0": {
             "name": "Brainstorm",
             "imageUri": "https://cards.scryfall.io/png/front/8/b/8beb987c-1b67-4a4e-ae71-58547afad2a0.png?1726284649",
             "prices": {
                 "Face 2 Face Games": 65
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "bffc360e-db41-48f3-9365-680d55046e04": {
             "name": "Thought-Knot Seer",
             "imageUri": "https://cards.scryfall.io/png/front/b/f/bffc360e-db41-48f3-9365-680d55046e04.png?1562933598",
             "prices": {
                 "Face 2 Face Games": 59
-            }
+            },
+            "colorIdentity": []
         },
         "9c017fa9-7021-417a-9c2e-3df409644fcf": {
             "name": "Ugin, the Spirit Dragon",
             "imageUri": "https://cards.scryfall.io/png/front/9/c/9c017fa9-7021-417a-9c2e-3df409644fcf.png?1639052473",
             "prices": {
                 "Face 2 Face Games": 74
-            }
+            },
+            "colorIdentity": []
         },
         "ec1c8759-ec90-420b-b9c3-33515e91b705": {
             "name": "Urza's Mine",
             "imageUri": "https://cards.scryfall.io/png/front/e/c/ec1c8759-ec90-420b-b9c3-33515e91b705.png?1675652861",
             "prices": {
                 "Face 2 Face Games": 35
-            }
+            },
+            "colorIdentity": []
         },
         "4e4fb50c-a81f-44d3-93c5-fa9a0b37f617": {
             "name": "Omnath, Locus of Creation",
             "imageUri": "https://cards.scryfall.io/png/front/4/e/4e4fb50c-a81f-44d3-93c5-fa9a0b37f617.png?1639436752",
             "prices": {
                 "Face 2 Face Games": 72
-            }
+            },
+            "colorIdentity": [
+                "G",
+                "R",
+                "U",
+                "W"
+            ]
         },
         "deb5ca6a-f91d-443d-ad84-6fe1e80bfb51": {
             "name": "Elvish Mystic",
             "imageUri": "https://cards.scryfall.io/png/front/d/e/deb5ca6a-f91d-443d-ad84-6fe1e80bfb51.png?1562795527",
             "prices": {
                 "Face 2 Face Games": 47
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc": {
             "name": "Fierce Guardianship",
             "imageUri": "https://cards.scryfall.io/png/front/f/7/f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc.png?1689996370",
             "prices": {
                 "Face 2 Face Games": 9
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "11e8d2fd-b132-4807-9410-8edeffa519ed": {
             "name": "Aether Vial",
             "imageUri": "https://cards.scryfall.io/png/front/1/1/11e8d2fd-b132-4807-9410-8edeffa519ed.png?1673149308",
             "prices": {
                 "Face 2 Face Games": 13
-            }
+            },
+            "colorIdentity": []
         },
         "58e93dff-b774-4765-b7bd-d3957e42ff4a": {
             "name": "Mystic Remora",
             "imageUri": "https://cards.scryfall.io/png/front/5/8/58e93dff-b774-4765-b7bd-d3957e42ff4a.png?1562911406",
             "prices": {
                 "Face 2 Face Games": 12
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "4b3c833d-b03e-4aee-8f62-1828081511ff": {
             "name": "Liliana, Dreadhorde General",
             "imageUri": "https://cards.scryfall.io/png/front/4/b/4b3c833d-b03e-4aee-8f62-1828081511ff.png?1702429454",
             "prices": {
                 "Face 2 Face Games": 59
-            }
+            },
+            "colorIdentity": [
+                "B"
+            ]
         },
         "f87cf997-14b5-4a2c-a7d1-34b7de6561a2": {
             "name": "Swords to Plowshares",
             "imageUri": "https://cards.scryfall.io/png/front/f/8/f87cf997-14b5-4a2c-a7d1-34b7de6561a2.png?1743206210",
             "prices": {
                 "Face 2 Face Games": 81
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "571bc9eb-8d13-4008-86b5-2e348a326d58": {
             "name": "Dockside Extortionist",
             "imageUri": "https://cards.scryfall.io/png/front/5/7/571bc9eb-8d13-4008-86b5-2e348a326d58.png?1615499802",
             "prices": {
                 "Face 2 Face Games": 22
-            }
+            },
+            "colorIdentity": [
+                "R"
+            ]
         },
         "88231c0d-0cc8-44ec-bf95-81d1710ac141": {
             "name": "Misty Rainforest",
             "imageUri": "https://cards.scryfall.io/png/front/8/8/88231c0d-0cc8-44ec-bf95-81d1710ac141.png?1738703648",
             "prices": {
                 "Face 2 Face Games": 77
-            }
+            },
+            "colorIdentity": []
         },
         "f2c4f80e-84a0-463b-82c3-5c6503809351": {
             "name": "Doubling Season",
             "imageUri": "https://cards.scryfall.io/png/front/f/2/f2c4f80e-84a0-463b-82c3-5c6503809351.png?1730489400",
             "prices": {
                 "Face 2 Face Games": 67
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5": {
             "name": "Karn, the Great Creator",
             "imageUri": "https://cards.scryfall.io/png/front/3/e/3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5.png?1701690505",
             "prices": {
                 "Face 2 Face Games": 22
-            }
+            },
+            "colorIdentity": []
         },
         "d6d04bfc-bbd0-4df9-9fa8-42ad13655e9a": {
             "name": "Sliver Hivelord",
             "imageUri": "https://cards.scryfall.io/png/front/d/6/d6d04bfc-bbd0-4df9-9fa8-42ad13655e9a.png?1580561477",
             "prices": {
                 "Face 2 Face Games": 50
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "G",
+                "R",
+                "U",
+                "W"
+            ]
         },
         "5a8b5ae4-e683-4ee5-8a41-10daddc2561f": {
             "name": "Birds of Paradise",
             "imageUri": "https://cards.scryfall.io/png/front/5/a/5a8b5ae4-e683-4ee5-8a41-10daddc2561f.png?1551119590",
             "prices": {
                 "Face 2 Face Games": 57
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "5dd13a6c-23d3-44ce-a628-cb1c19d777c4": {
             "name": "Winota, Joiner of Forces",
             "imageUri": "https://cards.scryfall.io/png/front/5/d/5dd13a6c-23d3-44ce-a628-cb1c19d777c4.png?1654630670",
             "prices": {
                 "Face 2 Face Games": 19
-            }
+            },
+            "colorIdentity": [
+                "R",
+                "W"
+            ]
         },
         "7af082fa-86a3-4f7b-966d-2be1f1d0c0bc": {
             "name": "Smothering Tithe",
             "imageUri": "https://cards.scryfall.io/png/front/7/a/7af082fa-86a3-4f7b-966d-2be1f1d0c0bc.png?1584830010",
             "prices": {
                 "Face 2 Face Games": 66
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "92ea1575-eb64-43b5-b604-c6e23054f228": {
             "name": "Korvold, Fae-Cursed King",
             "imageUri": "https://cards.scryfall.io/png/front/9/2/92ea1575-eb64-43b5-b604-c6e23054f228.png?1571197150",
             "prices": {
                 "Face 2 Face Games": 19
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "G",
+                "R"
+            ]
         },
         "f857bbe4-5619-4733-a0c7-69700f2ef4f3": {
             "name": "Nissa, Who Shakes the World",
             "imageUri": "https://cards.scryfall.io/png/front/f/8/f857bbe4-5619-4733-a0c7-69700f2ef4f3.png?1618426283",
             "prices": {
                 "Face 2 Face Games": 14
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "714c3a1f-7b30-4ed8-8f38-6176758741fb": {
             "name": "Sakashima of a Thousand Faces",
             "imageUri": "https://cards.scryfall.io/png/front/7/1/714c3a1f-7b30-4ed8-8f38-6176758741fb.png?1608909400",
             "prices": {
                 "Face 2 Face Games": 73
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "a056241d-513a-4de7-a604-bf8248c31225": {
             "name": "Ulamog, the Infinite Gyre",
             "imageUri": "https://cards.scryfall.io/png/front/a/0/a056241d-513a-4de7-a604-bf8248c31225.png?1562265676",
             "prices": {
                 "Face 2 Face Games": 68
-            }
+            },
+            "colorIdentity": []
         },
         "ae5f9fb1-5a55-4db3-98a1-2628e3598c18": {
             "name": "Lightning Bolt",
             "imageUri": "https://cards.scryfall.io/png/front/a/e/ae5f9fb1-5a55-4db3-98a1-2628e3598c18.png?1674136663",
             "prices": {
                 "Face 2 Face Games": 41
-            }
+            },
+            "colorIdentity": [
+                "R"
+            ]
         },
         "8a12b4f7-8f6b-4a3c-9114-825e1b2099a0": {
             "name": "Yavimaya, Cradle of Growth",
             "imageUri": "https://cards.scryfall.io/png/front/8/a/8a12b4f7-8f6b-4a3c-9114-825e1b2099a0.png?1717191223",
             "prices": {
                 "Face 2 Face Games": 16
-            }
+            },
+            "colorIdentity": []
         },
         "6003e1e8-13d5-4f17-bbd4-ee05a6c4b30d": {
             "name": "Stoneforge Mystic",
             "imageUri": "https://cards.scryfall.io/png/front/6/0/6003e1e8-13d5-4f17-bbd4-ee05a6c4b30d.png?1561929918",
             "prices": {
                 "Face 2 Face Games": 78
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "8b94f4c6-b518-43b3-be52-e889d1f3ea38": {
             "name": "Glistener Elf",
             "imageUri": "https://cards.scryfall.io/png/front/8/b/8b94f4c6-b518-43b3-be52-e889d1f3ea38.png?1562879525",
             "prices": {
                 "Face 2 Face Games": 41
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "9011126a-20bd-4c86-a63b-1691f79ac247": {
             "name": "Siege Rhino",
             "imageUri": "https://cards.scryfall.io/png/front/9/0/9011126a-20bd-4c86-a63b-1691f79ac247.png?1562790317",
             "prices": {
                 "Face 2 Face Games": 98
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "G",
+                "W"
+            ]
         },
         "c946b161-0e4f-4c0a-a075-cdcf05504d0b": {
             "name": "Sol Ring",
             "imageUri": "https://cards.scryfall.io/png/front/c/9/c946b161-0e4f-4c0a-a075-cdcf05504d0b.png?1738355575",
             "prices": {
                 "Face 2 Face Games": 88
-            }
+            },
+            "colorIdentity": []
         },
         "2135ac5a-187b-4dc9-8f82-34e8d1603416": {
             "name": "Boseiju, Who Endures",
             "imageUri": "https://cards.scryfall.io/png/front/2/1/2135ac5a-187b-4dc9-8f82-34e8d1603416.png?1654568912",
             "prices": {
                 "Face 2 Face Games": 63
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "65b7275a-5305-42e6-b5c3-8b88568b4e28": {
             "name": "Thoughtseize",
             "imageUri": "https://cards.scryfall.io/png/front/6/5/65b7275a-5305-42e6-b5c3-8b88568b4e28.png?1562819184",
             "prices": {
                 "Face 2 Face Games": 73
-            }
+            },
+            "colorIdentity": [
+                "B"
+            ]
         },
         "378c68f7-cf75-4835-8789-f266843851c3": {
             "name": "Wasteland",
             "imageUri": "https://cards.scryfall.io/png/front/3/7/378c68f7-cf75-4835-8789-f266843851c3.png?1723010428",
             "prices": {
                 "Face 2 Face Games": 39
-            }
+            },
+            "colorIdentity": []
         },
         "c34ae834-775e-447a-a330-0270c227c667": {
             "name": "Atraxa, Praetors' Voice",
             "imageUri": "https://cards.scryfall.io/png/front/c/3/c34ae834-775e-447a-a330-0270c227c667.png?1562418159",
             "prices": {
                 "Face 2 Face Games": 10
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "G",
+                "U",
+                "W"
+            ]
         },
         "06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87": {
             "name": "The First Sliver",
             "imageUri": "https://cards.scryfall.io/png/front/0/6/06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87.png?1562202321",
             "prices": {
                 "Face 2 Face Games": 56
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "G",
+                "R",
+                "U",
+                "W"
+            ]
         },
         "94c229ea-90da-4aa0-bfda-b162fb3b5b8b": {
             "name": "Verdant Catacombs",
             "imageUri": "https://cards.scryfall.io/png/front/9/4/94c229ea-90da-4aa0-bfda-b162fb3b5b8b.png?1738703665",
             "prices": {
                 "Face 2 Face Games": 14
-            }
+            },
+            "colorIdentity": []
         },
         "205c4689-8b02-4d40-9274-3c1fcafa8b82": {
             "name": "Cyclonic Rift",
             "imageUri": "https://cards.scryfall.io/png/front/2/0/205c4689-8b02-4d40-9274-3c1fcafa8b82.png?1562783580",
             "prices": {
                 "Face 2 Face Games": 53
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "25ac5405-df7b-4097-914a-022cb18e20d4": {
             "name": "Arid Mesa",
             "imageUri": "https://cards.scryfall.io/png/front/2/5/25ac5405-df7b-4097-914a-022cb18e20d4.png?1738703645",
             "prices": {
                 "Face 2 Face Games": 52
-            }
+            },
+            "colorIdentity": []
         },
         "8c2996d9-3287-4480-8c04-7a378e37e3cf": {
             "name": "Flooded Strand",
             "imageUri": "https://cards.scryfall.io/png/front/8/c/8c2996d9-3287-4480-8c04-7a378e37e3cf.png?1707237513",
             "prices": {
                 "Face 2 Face Games": 16
-            }
+            },
+            "colorIdentity": []
         },
         "c3700519-b74c-4445-b42e-03690b8d4463": {
             "name": "Wrath of God",
             "imageUri": "https://cards.scryfall.io/png/front/c/3/c3700519-b74c-4445-b42e-03690b8d4463.png?1675199137",
             "prices": {
                 "Face 2 Face Games": 63
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "21e27b91-c7f1-4709-aa0d-8b5d81b22a0a": {
             "name": "Thrasios, Triton Hero",
             "imageUri": "https://cards.scryfall.io/png/front/2/1/21e27b91-c7f1-4709-aa0d-8b5d81b22a0a.png?1721690845",
             "prices": {
                 "Face 2 Face Games": 65
-            }
+            },
+            "colorIdentity": [
+                "G",
+                "U"
+            ]
         },
         "ec50c1c3-885e-47d3-ada7-cc0edbf09df1": {
             "name": "Inkmoth Nexus",
             "imageUri": "https://cards.scryfall.io/png/front/e/c/ec50c1c3-885e-47d3-ada7-cc0edbf09df1.png?1623098818",
             "prices": {
                 "Face 2 Face Games": 37
-            }
+            },
+            "colorIdentity": []
         },
         "6a0b230b-d391-4998-a3f7-7b158a0ec2cd": {
             "name": "Llanowar Elves",
             "imageUri": "https://cards.scryfall.io/png/front/6/a/6a0b230b-d391-4998-a3f7-7b158a0ec2cd.png?1731652605",
             "prices": {
                 "Face 2 Face Games": 22
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "0e13f735-54fa-42b6-aea4-ced33811d7d4": {
             "name": "Deadly Rollick",
             "imageUri": "https://cards.scryfall.io/png/front/0/e/0e13f735-54fa-42b6-aea4-ced33811d7d4.png?1689997003",
             "prices": {
                 "Face 2 Face Games": 35
-            }
+            },
+            "colorIdentity": [
+                "B"
+            ]
         },
         "66024e69-ad60-4c9a-a0ca-da138d33ad80": {
             "name": "Mox Amber",
             "imageUri": "https://cards.scryfall.io/png/front/6/6/66024e69-ad60-4c9a-a0ca-da138d33ad80.png?1685554120",
             "prices": {
                 "Face 2 Face Games": 82
-            }
+            },
+            "colorIdentity": []
         },
         "0b54b6f3-9ee3-4f6e-bde6-b54fc038a132": {
             "name": "Mana Leak",
             "imageUri": "https://cards.scryfall.io/png/front/0/b/0b54b6f3-9ee3-4f6e-bde6-b54fc038a132.png?1573507857",
             "prices": {
                 "Face 2 Face Games": 39
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "8cf632ef-70e3-46f2-af21-14ea7ef30237": {
             "name": "All Is Dust",
             "imageUri": "https://cards.scryfall.io/png/front/8/c/8cf632ef-70e3-46f2-af21-14ea7ef30237.png?1612809614",
             "prices": {
                 "Face 2 Face Games": 74
-            }
+            },
+            "colorIdentity": []
         },
         "a3757f89-56fe-4234-bb8e-a2f3ae645a06": {
             "name": "Preordain",
             "imageUri": "https://cards.scryfall.io/png/front/a/3/a3757f89-56fe-4234-bb8e-a2f3ae645a06.png?1696636904",
             "prices": {
                 "Face 2 Face Games": 70
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "98040e14-8182-4a94-9322-bbd967dc4dfe": {
             "name": "Rest in Peace",
             "imageUri": "https://cards.scryfall.io/png/front/9/8/98040e14-8182-4a94-9322-bbd967dc4dfe.png?1721424317",
             "prices": {
                 "Face 2 Face Games": 25
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "69daba76-96e8-4bcc-ab79-2f00189ad8fb": {
             "name": "Tarmogoyf",
             "imageUri": "https://cards.scryfall.io/png/front/6/9/69daba76-96e8-4bcc-ab79-2f00189ad8fb.png?1619398799",
             "prices": {
                 "Face 2 Face Games": 47
-            }
+            },
+            "colorIdentity": [
+                "G"
+            ]
         },
         "6e4ed445-7b35-4090-9d0e-92532b07c8c7": {
             "name": "Path to Exile",
             "imageUri": "https://cards.scryfall.io/png/front/6/e/6e4ed445-7b35-4090-9d0e-92532b07c8c7.png?1721424283",
             "prices": {
                 "Face 2 Face Games": 51
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "a9738cda-adb1-47fb-9f4c-ecd930228c4d": {
             "name": "Ragavan, Nimble Pilferer",
             "imageUri": "https://cards.scryfall.io/png/front/a/9/a9738cda-adb1-47fb-9f4c-ecd930228c4d.png?1681963138",
             "prices": {
                 "Face 2 Face Games": 4
-            }
+            },
+            "colorIdentity": [
+                "R"
+            ]
         },
         "0e51d796-7279-4c06-87f0-37adbdaa41df": {
             "name": "Underworld Breach",
             "imageUri": "https://cards.scryfall.io/png/front/0/e/0e51d796-7279-4c06-87f0-37adbdaa41df.png?1743418992",
             "prices": {
                 "Face 2 Face Games": 8
-            }
+            },
+            "colorIdentity": [
+                "R"
+            ]
         },
         "df2a9344-38b5-4def-bb6e-87d837e6da54": {
             "name": "Urza's Power Plant",
             "imageUri": "https://cards.scryfall.io/png/front/d/f/df2a9344-38b5-4def-bb6e-87d837e6da54.png?1562939870",
             "prices": {
                 "Face 2 Face Games": 76
-            }
+            },
+            "colorIdentity": []
         },
         "350c41af-18e5-4ce8-b3b1-64baa85b1acb": {
             "name": "Serra Angel",
             "imageUri": "https://cards.scryfall.io/png/front/3/5/350c41af-18e5-4ce8-b3b1-64baa85b1acb.png?1562197862",
             "prices": {
                 "Face 2 Face Games": 97
-            }
+            },
+            "colorIdentity": [
+                "W"
+            ]
         },
         "a577ba08-0aa8-45be-aa83-d5078770127c": {
             "name": "Edgar Markov",
             "imageUri": "https://cards.scryfall.io/png/front/a/5/a577ba08-0aa8-45be-aa83-d5078770127c.png?1736468492",
             "prices": {
                 "Face 2 Face Games": 95
-            }
+            },
+            "colorIdentity": [
+                "B",
+                "R",
+                "W"
+            ]
         },
         "8493131c-0a7b-4be6-a8a2-0b425f4f67fb": {
             "name": "Counterspell",
             "imageUri": "https://cards.scryfall.io/png/front/8/4/8493131c-0a7b-4be6-a8a2-0b425f4f67fb.png?1689996248",
             "prices": {
                 "Face 2 Face Games": 30
-            }
+            },
+            "colorIdentity": [
+                "U"
+            ]
         },
         "68ed60d5-6a61-4da4-b2c7-df2be2d72762": {
             "name": "Kitchen Finks",
             "imageUri": "https://cards.scryfall.io/png/front/6/8/68ed60d5-6a61-4da4-b2c7-df2be2d72762.png?1723227529",
             "prices": {
                 "Face 2 Face Games": 24
-            }
+            },
+            "colorIdentity": [
+                "G",
+                "W"
+            ]
+        },
+        "70d6c02e-0f48-4fb0-94f3-1fc92ee1814f": {
+            "name": "Mox Jet",
+            "imageUri": "https://cards.scryfall.io/png/front/7/0/70d6c02e-0f48-4fb0-94f3-1fc92ee1814f.png?1559591936",
+            "prices": {
+                "Mana Trust": 1000
+            },
+            "colorIdentity": [
+                "B"
+            ]
+        },
+        "f7d82f1d-631e-4668-9d10-7bf0ee515267": {
+            "name": "Mox Sapphire",
+            "imageUri": "https://cards.scryfall.io/png/front/f/7/f7d82f1d-631e-4668-9d10-7bf0ee515267.png?1559592066",
+            "prices": {
+                "Mana Trust": 1030
+            },
+            "colorIdentity": [
+                "U"
+            ]
         }
     }
 }

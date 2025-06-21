@@ -45,9 +45,9 @@ app.post('/add-card', (req, res) => {
         const state = JSON.parse(data);
 
         for (const card of cards) {
-            const { cardId, name, imageUri } = card;
+            const { cardId, name, imageUri, colorIdentity } = card;
             if (!state.cards[cardId]) {
-                state.cards[cardId] = { name, imageUri, prices: {} };
+                state.cards[cardId] = { name, imageUri, prices: {}, colorIdentity };
             } else {
                 console.log(`Card ${cardId} already exists, skipping`);
             }

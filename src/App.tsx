@@ -12,6 +12,7 @@ interface CardState {
     name: string;
     imageUri: string;
     prices: { [key: string]: number };
+    colorIdentity: string[];
 }
 
 interface State {
@@ -34,6 +35,12 @@ const App: React.FC = () => {
     const [editingCardId, setEditingCardId] = useState<string | null>(null);
 
     const [addingCard, setAddingCard] = useState<boolean>(false);
+
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const [minPrice, setMinPrice] = useState<number | null>(7);
+
+    const [sortMode, setSortMode] = useState<'alpha' | 'color'>('alpha');
 
     useEffect(() => {
         const fetchState = async () => {
@@ -203,13 +210,19 @@ const App: React.FC = () => {
                 const uuid = card.id;
                 const actualName = card.name;
                 const imageUri = card.image_uris?.png || card.card_faces?.[0]?.image_uris?.png;
+                const colorIdentity = Array.isArray(card.color_identity) ? card.color_identity : [];
     
                 const alreadyAdded = Object.values(state.cards).some(
                     c => c.name.toLowerCase() === actualName.toLowerCase()
                 );
     
                 if (!alreadyAdded) {
-                    cardsToAdd.push({ cardId: uuid, name: actualName, imageUri });
+                    cardsToAdd.push({
+                        cardId: uuid,
+                        name: actualName,
+                        imageUri,
+                        colorIdentity
+                    });
                 }
     
                 pricesToSet.push({
@@ -251,7 +264,15 @@ const App: React.FC = () => {
             console.error('Error during batch import:', err);
         }
     };
-    
+
+    const getColorSortValue = (colorIdentity: string[]): number => {
+        if (!colorIdentity || colorIdentity.length === 0) return 6; // colorless
+        if (colorIdentity.length > 1) return 5; // multicolor
+
+        const order = { W: 0, U: 1, B: 2, R: 3, G: 4 };
+        return order[colorIdentity[0]] ?? 5;
+    };
+
     if (error) {
         return <div>Error: {error}</div>;
     }
@@ -303,41 +324,104 @@ const App: React.FC = () => {
                     onChange={handleCSVUpload}
                 />
             </div>
-            <h1>Cards</h1>
-            <div className="cards">
-                {state.cards &&
-                    Object.entries(state.cards)
-                        .sort(([cardIdA, cardStateA], [cardIdB, cardStateB]) =>
-                            cardStateA.name > cardStateB.name ? 1 : -1
-                        )
-                        .map(([cardId, cardState]) => {
-                            let storeId;
-                            let price;
-                            if (selectedStoreId) {
-                                storeId = selectedStoreId;
-                                price = cardState.prices[selectedStoreId];
-                            } else {
-                                [storeId, price] = Object.entries(
-                                    cardState.prices
-                                ).reduce(
-                                    (maxEntry, currentEntry) =>
-                                        currentEntry[1] > maxEntry[1]
-                                            ? currentEntry
-                                            : maxEntry,
-                                    ['', -1]
-                                );
-                            }
-                            return (
-                                <Card
-                                    key={cardId}
-                                    imageUri={cardState.imageUri}
-                                    storeId={storeId}
-                                    price={price}
-                                    onClick={() => handleCardClick(cardId)}
-                                />
-                            );
-                        })}
+            <h1>Filter</h1>
+            <input
+                type="text"
+                placeholder="Search cards..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="search-input"
+            />
+            <input
+                type="number"
+                placeholder="Min price"
+                value={minPrice ?? ''}
+                onChange={(e) => {
+                    const val = e.target.value;
+                    setMinPrice(val === '' ? null : parseFloat(val));
+                }}
+                className="price-filter-input"
+            />
+            <div style={{ marginBottom: '1em' }}>
+                <label style={{ marginRight: '1em' }}>
+                    <input
+                        type="radio"
+                        name="sortMode"
+                        value="alpha"
+                        checked={sortMode === 'alpha'}
+                        onChange={() => setSortMode('alpha')}
+                    />
+                    {' '}
+                    Alphabetical
+                </label>
+                <label>
+                    <input
+                        type="radio"
+                        name="sortMode"
+                        value="color"
+                        checked={sortMode === 'color'}
+                        onChange={() => setSortMode('color')}
+                    />
+                    {' '}
+                    By color identity
+                </label>
             </div>
+            <h1>Cards</h1>
+            <table className="card-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Store</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {state.cards &&
+                        Object.entries(state.cards)
+                            .filter(([, cardState]) => {
+                                const matchesName = cardState.name.toLowerCase().includes(searchQuery.toLowerCase());
+                                const storePrice = selectedStoreId
+                                    ? cardState.prices[selectedStoreId] ?? -1
+                                    : Object.values(cardState.prices).reduce((a, b) => Math.max(a, b), -1);
+
+                                const matchesMinPrice = minPrice == null || storePrice >= minPrice;
+
+                                return matchesName && matchesMinPrice;
+                            })
+                            .sort(([, a], [, b]) => {
+                                if (sortMode === 'color') {
+                                    const colorA = getColorSortValue(a.colorIdentity);
+                                    const colorB = getColorSortValue(b.colorIdentity);
+                                    if (colorA !== colorB) return colorA - colorB;
+                                }
+                                return a.name.localeCompare(b.name);
+                            })
+                            .map(([cardId, cardState]) => {
+                                let store = '';
+                                let price: number | undefined;
+
+                                if (selectedStoreId) {
+                                    store = selectedStoreId;
+                                    price = cardState.prices[selectedStoreId];
+                                } else {
+                                    const entries = Object.entries(cardState.prices);
+                                    if (entries.length === 0) return null;
+                                    [store, price] = entries.reduce(
+                                        (best, current) => current[1] > best[1] ? current : best,
+                                        ['', -1]
+                                    );
+                                }
+
+                                return (
+                                    <tr key={cardId} onClick={() => handleCardClick(cardId)} style={{ cursor: selectedStoreId ? 'pointer' : 'default' }}>
+                                        <td>{cardState.name}</td>
+                                        <td className="truncate" title={store}>{store}</td>
+                                        <td>{price != null ? `$${price.toFixed(2)}` : ''}</td>
+                                    </tr>
+                                );
+                            })}
+                </tbody>
+            </table>
         </div>
     );
 };

@@ -38,3 +38,45 @@ h4 {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.search-input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5em;
+    margin: 1em 0;
+    font-size: 1rem;
+}
+
+.price-filter-input {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    font-size: 1rem;
+}
+
+.card-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+
+.card-table th,
+.card-table td {
+    border: 1px solid #ccc;
+    padding: 0.5em;
+    text-align: left;
+}
+
+.card-table tr:hover {
+    background-color: #f8f8f8;
+}
+
+.card-table td.truncate {
+    max-width: 200px;           /* or whatever fits your layout */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
