@@ -15,12 +15,19 @@ async function updateColors() {
             if (!res.ok) throw new Error(`Card not found: ${cardId}`);
             const data = await res.json();
 
-            const colorIdentity = Array.isArray(data.color_identity) ? data.color_identity : [];
+            const colorIdentity = Array.isArray(data.color_identity)
+                ? data.color_identity
+                : [];
             card.colorIdentity = colorIdentity;
 
-            console.log(`✔ Updated ${card.name}: [${colorIdentity.join(',')}]`);
+            console.log(
+                `✔ Updated ${card.name}: [${colorIdentity.join(',')}]`
+            );
         } catch (err) {
-            console.error(`✖ Failed for ${card.name} (${cardId}):`, err.message);
+            console.error(
+                `✖ Failed for ${card.name} (${cardId}):`,
+                err.message
+            );
         }
     }
 

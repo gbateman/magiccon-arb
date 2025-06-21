@@ -33,6 +33,7 @@ const App: React.FC = () => {
     const [selectedStoreId, setSelectedStoreId] = useState<string | null>(null);
 
     const [editingCardId, setEditingCardId] = useState<string | null>(null);
+    const [editingStoreId, setEditingStoreId] = useState<string | null>(null);
 
     const [addingCard, setAddingCard] = useState<boolean>(false);
 
@@ -72,31 +73,47 @@ const App: React.FC = () => {
         }
     };
 
-    const handleCardClick = async (cardId: string) => {
-        console.log('Clicked:', cardId);
+    const handleCardClick = (cardId: string) => {
         if (selectedStoreId) {
             setEditingCardId(cardId);
+            setEditingStoreId(selectedStoreId);
+            return;
         }
+
+        const prices = state.cards[cardId]?.prices ?? {};
+        const entries = Object.entries(prices);
+        if (entries.length === 0) return;
+
+        const [bestStore] = entries.reduce(
+            (best, current) => (current[1] > best[1] ? current : best),
+            ['', -1]
+        );
+
+        if (!bestStore) return;
+
+        setEditingCardId(cardId);
+        setEditingStoreId(bestStore);
     };
 
     const handleConfirmPrice = async (price: number) => {
-        console.log('Confirmed Price:', price);
+        if (!editingCardId || !editingStoreId) return;
+
         setEditingCardId(null);
+        setEditingStoreId(null);
+
         try {
             const response = await fetch('/set-price', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     cardId: editingCardId,
-                    storeId: selectedStoreId,
+                    storeId: editingStoreId,
                     price,
                 }),
             });
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
+
+            if (!response.ok) throw new Error('Network response was not ok');
+
             const data = await response.json();
             if (typeof data.state === 'object') {
                 setState(data.state);
@@ -108,9 +125,9 @@ const App: React.FC = () => {
         }
     };
 
-    const handleCancelEditingPrice = async () => {
-        console.log('Cancel Editing Price');
+    const handleCancelEditingPrice = () => {
         setEditingCardId(null);
+        setEditingStoreId(null);
     };
 
     const handleAddCard = async () => {
@@ -166,28 +183,30 @@ const App: React.FC = () => {
         fileInputRef.current?.click();
     };
 
-    const handleCSVUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleCSVUpload = async (
+        event: React.ChangeEvent<HTMLInputElement>
+    ) => {
         const file = event.target.files?.[0];
         if (!file) return;
-    
+
         const text = await file.text();
         const parsed = Papa.parse(text, {
             header: true,
             skipEmptyLines: true,
-            transform: value => value.trim().replace(/^['"]|['"]$/g, ''),
+            transform: (value) => value.trim().replace(/^['"]|['"]$/g, ''),
         });
-    
+
         if (parsed.errors.length > 0) {
             console.error('CSV parse error:', parsed.errors);
             alert('There was a problem parsing the CSV.');
             return;
         }
-    
+
         const rows = parsed.data as { card_name: string; price: string }[];
-    
+
         const cardsToAdd = [];
         const pricesToSet = [];
-    
+
         for (const row of rows) {
             const name = row.card_name;
             const price = parseFloat(row.price);
@@ -195,7 +214,7 @@ const App: React.FC = () => {
                 console.warn('Invalid row skipped:', row);
                 continue;
             }
-    
+
             try {
                 const scryfallRes = await fetch(
                     `https://api.scryfall.com/cards/search?q=${encodeURIComponent(`unique:cards sort:usd is:typical "${name}"`)}`
@@ -206,36 +225,39 @@ const App: React.FC = () => {
                     console.warn(`No result for: ${name}`);
                     continue;
                 }
-    
+
                 const uuid = card.id;
                 const actualName = card.name;
-                const imageUri = card.image_uris?.png || card.card_faces?.[0]?.image_uris?.png;
-                const colorIdentity = Array.isArray(card.color_identity) ? card.color_identity : [];
-    
+                const imageUri =
+                    card.image_uris?.png ||
+                    card.card_faces?.[0]?.image_uris?.png;
+                const colorIdentity = Array.isArray(card.color_identity)
+                    ? card.color_identity
+                    : [];
+
                 const alreadyAdded = Object.values(state.cards).some(
-                    c => c.name.toLowerCase() === actualName.toLowerCase()
+                    (c) => c.name.toLowerCase() === actualName.toLowerCase()
                 );
-    
+
                 if (!alreadyAdded) {
                     cardsToAdd.push({
                         cardId: uuid,
                         name: actualName,
                         imageUri,
-                        colorIdentity
+                        colorIdentity,
                     });
                 }
-    
+
                 pricesToSet.push({
                     cardId: uuid,
                     storeId: selectedStoreId,
                     price,
                 });
-    
             } catch (err) {
                 console.error(`Error importing ${name}:`, err);
             }
         }
-    
+
         try {
             if (cardsToAdd.length > 0) {
                 const addRes = await fetch('/add-card', {
@@ -245,7 +267,7 @@ const App: React.FC = () => {
                 });
                 if (!addRes.ok) throw new Error('Batch add failed');
             }
-    
+
             if (pricesToSet.length > 0) {
                 const priceRes = await fetch('/set-price', {
                     method: 'POST',
@@ -254,7 +276,7 @@ const App: React.FC = () => {
                 });
                 if (!priceRes.ok) throw new Error('Batch price set failed');
             }
-    
+
             const updated = await fetch('/state');
             const updatedJson = await updated.json();
             if (typeof updatedJson.state === 'object') {
@@ -281,7 +303,9 @@ const App: React.FC = () => {
         return (
             <PriceInput
                 initialPrice={
-                    state.cards[editingCardId].prices[selectedStoreId]
+                    editingCardId && editingStoreId
+                        ? state.cards[editingCardId].prices[editingStoreId]
+                        : undefined
                 }
                 onSubmit={handleConfirmPrice}
                 onCancel={handleCancelEditingPrice}
@@ -350,8 +374,7 @@ const App: React.FC = () => {
                         value="alpha"
                         checked={sortMode === 'alpha'}
                         onChange={() => setSortMode('alpha')}
-                    />
-                    {' '}
+                    />{' '}
                     Alphabetical
                 </label>
                 <label>
@@ -361,8 +384,7 @@ const App: React.FC = () => {
                         value="color"
                         checked={sortMode === 'color'}
                         onChange={() => setSortMode('color')}
-                    />
-                    {' '}
+                    />{' '}
                     By color identity
                 </label>
             </div>
@@ -379,20 +401,31 @@ const App: React.FC = () => {
                     {state.cards &&
                         Object.entries(state.cards)
                             .filter(([, cardState]) => {
-                                const matchesName = cardState.name.toLowerCase().includes(searchQuery.toLowerCase());
+                                const matchesName = cardState.name
+                                    .toLowerCase()
+                                    .includes(searchQuery.toLowerCase());
                                 const storePrice = selectedStoreId
                                     ? cardState.prices[selectedStoreId] ?? -1
-                                    : Object.values(cardState.prices).reduce((a, b) => Math.max(a, b), -1);
+                                    : Object.values(cardState.prices).reduce(
+                                          (a, b) => Math.max(a, b),
+                                          -1
+                                      );
 
-                                const matchesMinPrice = minPrice == null || storePrice >= minPrice;
+                                const matchesMinPrice =
+                                    minPrice == null || storePrice >= minPrice;
 
                                 return matchesName && matchesMinPrice;
                             })
                             .sort(([, a], [, b]) => {
                                 if (sortMode === 'color') {
-                                    const colorA = getColorSortValue(a.colorIdentity);
-                                    const colorB = getColorSortValue(b.colorIdentity);
-                                    if (colorA !== colorB) return colorA - colorB;
+                                    const colorA = getColorSortValue(
+                                        a.colorIdentity
+                                    );
+                                    const colorB = getColorSortValue(
+                                        b.colorIdentity
+                                    );
+                                    if (colorA !== colorB)
+                                        return colorA - colorB;
                                 }
                                 return a.name.localeCompare(b.name);
                             })
@@ -404,19 +437,38 @@ const App: React.FC = () => {
                                     store = selectedStoreId;
                                     price = cardState.prices[selectedStoreId];
                                 } else {
-                                    const entries = Object.entries(cardState.prices);
+                                    const entries = Object.entries(
+                                        cardState.prices
+                                    );
                                     if (entries.length === 0) return null;
                                     [store, price] = entries.reduce(
-                                        (best, current) => current[1] > best[1] ? current : best,
+                                        (best, current) =>
+                                            current[1] > best[1]
+                                                ? current
+                                                : best,
                                         ['', -1]
                                     );
                                 }
 
                                 return (
-                                    <tr key={cardId} onClick={() => handleCardClick(cardId)} style={{ cursor: selectedStoreId ? 'pointer' : 'default' }}>
+                                    <tr
+                                        key={cardId}
+                                        onClick={() => handleCardClick(cardId)}
+                                        style={{
+                                            cursor: selectedStoreId
+                                                ? 'pointer'
+                                                : 'default',
+                                        }}
+                                    >
                                         <td>{cardState.name}</td>
-                                        <td className="truncate" title={store}>{store}</td>
-                                        <td>{price != null ? `$${price.toFixed(2)}` : ''}</td>
+                                        <td className="truncate" title={store}>
+                                            {store}
+                                        </td>
+                                        <td>
+                                            {price != null
+                                                ? `$${price.toFixed(2)}`
+                                                : ''}
+                                        </td>
                                     </tr>
                                 );
                             })}

@@ -1,8 +1,5 @@
 {
-    "storeIds": [
-        "Face 2 Face Games",
-        "Mana Trust"
-    ],
+    "storeIds": ["Face 2 Face Games", "Mana Trust"],
     "cards": {
         "9db3ba6d-eb7f-4f5b-9a3b-c6239c3baa42": {
             "name": "Marsh Flats",
@@ -18,11 +15,7 @@
             "prices": {
                 "Face 2 Face Games": 52
             },
-            "colorIdentity": [
-                "B",
-                "R",
-                "U"
-            ]
+            "colorIdentity": ["B", "R", "U"]
         },
         "7b7a348a-51f7-4dc5-8fe7-1c70fea5e050": {
             "name": "Urza, Lord High Artificer",
@@ -30,9 +23,7 @@
             "prices": {
                 "Face 2 Face Games": 99
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "ff8086cd-b868-4f4e-823e-2635ad7ebc07": {
             "name": "Chandra, Torch of Defiance",
@@ -40,9 +31,7 @@
             "prices": {
                 "Face 2 Face Games": 22
             },
-            "colorIdentity": [
-                "R"
-            ]
+            "colorIdentity": ["R"]
         },
         "cd114ec3-d286-4c70-a122-3043bc53cc88": {
             "name": "Batterskull",
@@ -58,9 +47,7 @@
             "prices": {
                 "Face 2 Face Games": 65
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "bffc360e-db41-48f3-9365-680d55046e04": {
             "name": "Thought-Knot Seer",
@@ -92,12 +79,7 @@
             "prices": {
                 "Face 2 Face Games": 72
             },
-            "colorIdentity": [
-                "G",
-                "R",
-                "U",
-                "W"
-            ]
+            "colorIdentity": ["G", "R", "U", "W"]
         },
         "deb5ca6a-f91d-443d-ad84-6fe1e80bfb51": {
             "name": "Elvish Mystic",
@@ -105,9 +87,7 @@
             "prices": {
                 "Face 2 Face Games": 47
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "f7f3dd95-bd14-4e0f-a388-444f9cf1b0dc": {
             "name": "Fierce Guardianship",
@@ -115,9 +95,7 @@
             "prices": {
                 "Face 2 Face Games": 9
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "11e8d2fd-b132-4807-9410-8edeffa519ed": {
             "name": "Aether Vial",
@@ -133,9 +111,7 @@
             "prices": {
                 "Face 2 Face Games": 12
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "4b3c833d-b03e-4aee-8f62-1828081511ff": {
             "name": "Liliana, Dreadhorde General",
@@ -143,9 +119,7 @@
             "prices": {
                 "Face 2 Face Games": 59
             },
-            "colorIdentity": [
-                "B"
-            ]
+            "colorIdentity": ["B"]
         },
         "f87cf997-14b5-4a2c-a7d1-34b7de6561a2": {
             "name": "Swords to Plowshares",
@@ -153,9 +127,7 @@
             "prices": {
                 "Face 2 Face Games": 81
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "571bc9eb-8d13-4008-86b5-2e348a326d58": {
             "name": "Dockside Extortionist",
@@ -163,9 +135,7 @@
             "prices": {
                 "Face 2 Face Games": 22
             },
-            "colorIdentity": [
-                "R"
-            ]
+            "colorIdentity": ["R"]
         },
         "88231c0d-0cc8-44ec-bf95-81d1710ac141": {
             "name": "Misty Rainforest",
@@ -181,9 +151,7 @@
             "prices": {
                 "Face 2 Face Games": 67
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "3ec0c0fb-1a4f-45f4-85b7-346a6d3ce2c5": {
             "name": "Karn, the Great Creator",
@@ -199,13 +167,7 @@
             "prices": {
                 "Face 2 Face Games": 50
             },
-            "colorIdentity": [
-                "B",
-                "G",
-                "R",
-                "U",
-                "W"
-            ]
+            "colorIdentity": ["B", "G", "R", "U", "W"]
         },
         "5a8b5ae4-e683-4ee5-8a41-10daddc2561f": {
             "name": "Birds of Paradise",
@@ -213,9 +175,7 @@
             "prices": {
                 "Face 2 Face Games": 57
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "5dd13a6c-23d3-44ce-a628-cb1c19d777c4": {
             "name": "Winota, Joiner of Forces",
@@ -223,10 +183,7 @@
             "prices": {
                 "Face 2 Face Games": 19
             },
-            "colorIdentity": [
-                "R",
-                "W"
-            ]
+            "colorIdentity": ["R", "W"]
         },
         "7af082fa-86a3-4f7b-966d-2be1f1d0c0bc": {
             "name": "Smothering Tithe",
@@ -234,9 +191,7 @@
             "prices": {
                 "Face 2 Face Games": 66
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "92ea1575-eb64-43b5-b604-c6e23054f228": {
             "name": "Korvold, Fae-Cursed King",
@@ -244,11 +199,7 @@
             "prices": {
                 "Face 2 Face Games": 19
             },
-            "colorIdentity": [
-                "B",
-                "G",
-                "R"
-            ]
+            "colorIdentity": ["B", "G", "R"]
         },
         "f857bbe4-5619-4733-a0c7-69700f2ef4f3": {
             "name": "Nissa, Who Shakes the World",
@@ -256,9 +207,7 @@
             "prices": {
                 "Face 2 Face Games": 14
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "714c3a1f-7b30-4ed8-8f38-6176758741fb": {
             "name": "Sakashima of a Thousand Faces",
@@ -266,9 +215,7 @@
             "prices": {
                 "Face 2 Face Games": 73
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "a056241d-513a-4de7-a604-bf8248c31225": {
             "name": "Ulamog, the Infinite Gyre",
@@ -284,9 +231,7 @@
             "prices": {
                 "Face 2 Face Games": 41
             },
-            "colorIdentity": [
-                "R"
-            ]
+            "colorIdentity": ["R"]
         },
         "8a12b4f7-8f6b-4a3c-9114-825e1b2099a0": {
             "name": "Yavimaya, Cradle of Growth",
@@ -302,9 +247,7 @@
             "prices": {
                 "Face 2 Face Games": 78
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "8b94f4c6-b518-43b3-be52-e889d1f3ea38": {
             "name": "Glistener Elf",
@@ -312,9 +255,7 @@
             "prices": {
                 "Face 2 Face Games": 41
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "9011126a-20bd-4c86-a63b-1691f79ac247": {
             "name": "Siege Rhino",
@@ -322,11 +263,7 @@
             "prices": {
                 "Face 2 Face Games": 98
             },
-            "colorIdentity": [
-                "B",
-                "G",
-                "W"
-            ]
+            "colorIdentity": ["B", "G", "W"]
         },
         "c946b161-0e4f-4c0a-a075-cdcf05504d0b": {
             "name": "Sol Ring",
@@ -342,9 +279,7 @@
             "prices": {
                 "Face 2 Face Games": 63
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "65b7275a-5305-42e6-b5c3-8b88568b4e28": {
             "name": "Thoughtseize",
@@ -352,9 +287,7 @@
             "prices": {
                 "Face 2 Face Games": 73
             },
-            "colorIdentity": [
-                "B"
-            ]
+            "colorIdentity": ["B"]
         },
         "378c68f7-cf75-4835-8789-f266843851c3": {
             "name": "Wasteland",
@@ -370,12 +303,7 @@
             "prices": {
                 "Face 2 Face Games": 10
             },
-            "colorIdentity": [
-                "B",
-                "G",
-                "U",
-                "W"
-            ]
+            "colorIdentity": ["B", "G", "U", "W"]
         },
         "06d4fbe1-8a2f-4958-bb85-1a1e5f1e8d87": {
             "name": "The First Sliver",
@@ -383,13 +311,7 @@
             "prices": {
                 "Face 2 Face Games": 56
             },
-            "colorIdentity": [
-                "B",
-                "G",
-                "R",
-                "U",
-                "W"
-            ]
+            "colorIdentity": ["B", "G", "R", "U", "W"]
         },
         "94c229ea-90da-4aa0-bfda-b162fb3b5b8b": {
             "name": "Verdant Catacombs",
@@ -405,9 +327,7 @@
             "prices": {
                 "Face 2 Face Games": 53
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "25ac5405-df7b-4097-914a-022cb18e20d4": {
             "name": "Arid Mesa",
@@ -431,9 +351,7 @@
             "prices": {
                 "Face 2 Face Games": 63
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "21e27b91-c7f1-4709-aa0d-8b5d81b22a0a": {
             "name": "Thrasios, Triton Hero",
@@ -441,10 +359,7 @@
             "prices": {
                 "Face 2 Face Games": 65
             },
-            "colorIdentity": [
-                "G",
-                "U"
-            ]
+            "colorIdentity": ["G", "U"]
         },
         "ec50c1c3-885e-47d3-ada7-cc0edbf09df1": {
             "name": "Inkmoth Nexus",
@@ -460,9 +375,7 @@
             "prices": {
                 "Face 2 Face Games": 22
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "0e13f735-54fa-42b6-aea4-ced33811d7d4": {
             "name": "Deadly Rollick",
@@ -470,9 +383,7 @@
             "prices": {
                 "Face 2 Face Games": 35
             },
-            "colorIdentity": [
-                "B"
-            ]
+            "colorIdentity": ["B"]
         },
         "66024e69-ad60-4c9a-a0ca-da138d33ad80": {
             "name": "Mox Amber",
@@ -488,9 +399,7 @@
             "prices": {
                 "Face 2 Face Games": 39
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "8cf632ef-70e3-46f2-af21-14ea7ef30237": {
             "name": "All Is Dust",
@@ -506,9 +415,7 @@
             "prices": {
                 "Face 2 Face Games": 70
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "98040e14-8182-4a94-9322-bbd967dc4dfe": {
             "name": "Rest in Peace",
@@ -516,9 +423,7 @@
             "prices": {
                 "Face 2 Face Games": 25
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "69daba76-96e8-4bcc-ab79-2f00189ad8fb": {
             "name": "Tarmogoyf",
@@ -526,9 +431,7 @@
             "prices": {
                 "Face 2 Face Games": 47
             },
-            "colorIdentity": [
-                "G"
-            ]
+            "colorIdentity": ["G"]
         },
         "6e4ed445-7b35-4090-9d0e-92532b07c8c7": {
             "name": "Path to Exile",
@@ -536,9 +439,7 @@
             "prices": {
                 "Face 2 Face Games": 51
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "a9738cda-adb1-47fb-9f4c-ecd930228c4d": {
             "name": "Ragavan, Nimble Pilferer",
@@ -546,9 +447,7 @@
             "prices": {
                 "Face 2 Face Games": 4
             },
-            "colorIdentity": [
-                "R"
-            ]
+            "colorIdentity": ["R"]
         },
         "0e51d796-7279-4c06-87f0-37adbdaa41df": {
             "name": "Underworld Breach",
@@ -556,9 +455,7 @@
             "prices": {
                 "Face 2 Face Games": 8
             },
-            "colorIdentity": [
-                "R"
-            ]
+            "colorIdentity": ["R"]
         },
         "df2a9344-38b5-4def-bb6e-87d837e6da54": {
             "name": "Urza's Power Plant",
@@ -574,9 +471,7 @@
             "prices": {
                 "Face 2 Face Games": 97
             },
-            "colorIdentity": [
-                "W"
-            ]
+            "colorIdentity": ["W"]
         },
         "a577ba08-0aa8-45be-aa83-d5078770127c": {
             "name": "Edgar Markov",
@@ -584,11 +479,7 @@
             "prices": {
                 "Face 2 Face Games": 95
             },
-            "colorIdentity": [
-                "B",
-                "R",
-                "W"
-            ]
+            "colorIdentity": ["B", "R", "W"]
         },
         "8493131c-0a7b-4be6-a8a2-0b425f4f67fb": {
             "name": "Counterspell",
@@ -596,9 +487,7 @@
             "prices": {
                 "Face 2 Face Games": 30
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         },
         "68ed60d5-6a61-4da4-b2c7-df2be2d72762": {
             "name": "Kitchen Finks",
@@ -606,10 +495,7 @@
             "prices": {
                 "Face 2 Face Games": 24
             },
-            "colorIdentity": [
-                "G",
-                "W"
-            ]
+            "colorIdentity": ["G", "W"]
         },
         "70d6c02e-0f48-4fb0-94f3-1fc92ee1814f": {
             "name": "Mox Jet",
@@ -617,9 +503,7 @@
             "prices": {
                 "Mana Trust": 1000
             },
-            "colorIdentity": [
-                "B"
-            ]
+            "colorIdentity": ["B"]
         },
         "f7d82f1d-631e-4668-9d10-7bf0ee515267": {
             "name": "Mox Sapphire",
@@ -627,9 +511,7 @@
             "prices": {
                 "Mana Trust": 1030
             },
-            "colorIdentity": [
-                "U"
-            ]
+            "colorIdentity": ["U"]
         }
     }
 }

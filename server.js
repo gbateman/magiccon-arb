@@ -47,7 +47,12 @@ app.post('/add-card', (req, res) => {
         for (const card of cards) {
             const { cardId, name, imageUri, colorIdentity } = card;
             if (!state.cards[cardId]) {
-                state.cards[cardId] = { name, imageUri, prices: {}, colorIdentity };
+                state.cards[cardId] = {
+                    name,
+                    imageUri,
+                    prices: {},
+                    colorIdentity,
+                };
             } else {
                 console.log(`Card ${cardId} already exists, skipping`);
             }
@@ -63,7 +68,6 @@ app.post('/add-card', (req, res) => {
         });
     });
 });
-
 
 app.post('/set-price', (req, res) => {
     const prices = Array.isArray(req.body) ? req.body : [req.body]; // Support single or batch

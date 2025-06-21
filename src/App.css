@@ -75,7 +75,7 @@ h4 {
 }
 
 .card-table td.truncate {
-    max-width: 200px;           /* or whatever fits your layout */
+    max-width: 200px; /* or whatever fits your layout */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
